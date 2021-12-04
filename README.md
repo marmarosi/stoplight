@@ -1,0 +1,2 @@
+# stoplight
+Stoplight Studio test
