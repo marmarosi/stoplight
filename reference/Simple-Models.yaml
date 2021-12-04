@@ -1,0 +1,602 @@
+openapi: 3.1.0
+info:
+  title: Simple Models
+  version: '1.0'
+  summary: CSLA templates - endpoints for simple models
+  description: ''
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /api/simple:
+    get:
+      summary: Gets a list of teams.
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: ''
+                minItems: 1
+                uniqueItems: true
+                items:
+                  type: object
+                  required:
+                    - teamCode
+                    - teamName
+                    - teamId
+                  properties:
+                    teamCode:
+                      type: string
+                      minLength: 1
+                    teamName:
+                      type: string
+                      minLength: 1
+                    teamId:
+                      type: string
+                      minLength: 1
+                x-examples:
+                  example-1:
+                    - teamCode: string
+                      teamName: string
+                      teamId: string
+      operationId: get-api-simple
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: teamName
+          description: Team name must contain it.
+    post:
+      summary: Creates a new team.
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  teamCode:
+                    type: string
+                    minLength: 1
+                  teamName:
+                    type: string
+                    minLength: 1
+                  timestamp:
+                    type: string
+                    minLength: 1
+                  teamId:
+                    type: string
+                    minLength: 1
+                required:
+                  - teamCode
+                  - teamName
+                  - timestamp
+                  - teamId
+                x-examples:
+                  example-1:
+                    teamCode: string
+                    teamName: string
+                    timestamp: '2021-12-04T18:13:23.653Z'
+                    teamId: string
+      operationId: post-api-simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                teamCode:
+                  type: string
+                  minLength: 1
+                teamName:
+                  type: string
+                  minLength: 1
+                timestamp:
+                  type: string
+                  minLength: 1
+                teamId:
+                  type: string
+                  minLength: 1
+              required:
+                - teamCode
+                - teamName
+                - timestamp
+                - teamId
+              x-examples:
+                example-1:
+                  teamCode: string
+                  teamName: string
+                  timestamp: '2021-12-04T18:13:23.653Z'
+                  teamId: string
+    put:
+      summary: Updates the specified team.
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  teamCode:
+                    type: string
+                    minLength: 1
+                  teamName:
+                    type: string
+                    minLength: 1
+                  timestamp:
+                    type: string
+                    minLength: 1
+                  teamId:
+                    type: string
+                    minLength: 1
+                required:
+                  - teamCode
+                  - teamName
+                  - timestamp
+                  - teamId
+                x-examples:
+                  example-1:
+                    teamCode: string
+                    teamName: string
+                    timestamp: '2021-12-04T18:13:23.653Z'
+                    teamId: string
+      operationId: put-api-simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                teamCode:
+                  type: string
+                  minLength: 1
+                teamName:
+                  type: string
+                  minLength: 1
+                timestamp:
+                  type: string
+                  minLength: 1
+                teamId:
+                  type: string
+                  minLength: 1
+              required:
+                - teamCode
+                - teamName
+                - timestamp
+                - teamId
+              x-examples:
+                example-1:
+                  teamCode: string
+                  teamName: string
+                  timestamp: '2021-12-04T18:13:23.653Z'
+                  teamId: string
+    delete:
+      summary: Deletes the specified team.
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: delete-api-simple
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: teamId
+          description: The identifier of the team.
+    patch:
+      summary: /api/simple
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                example-1:
+                  value: {}
+      operationId: patch-api-simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                teamName:
+                  type: string
+                  minLength: 1
+                teamId:
+                  type: string
+                  minLength: 1
+              required:
+                - teamName
+                - teamId
+              x-examples:
+                example-1:
+                  teamName: string
+                  teamId: string
+  /api/simple/new:
+    get:
+      summary: Gets a new team to edit.
+      tags: []
+      operationId: get-api-simple-new
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: TeamName
+          description: Filter by the team name
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  teamCode:
+                    type: string
+                    minLength: 1
+                  teamName:
+                    type: string
+                    minLength: 1
+                  timestamp:
+                    type: string
+                    minLength: 1
+                  teamId:
+                    type: string
+                    minLength: 1
+                required:
+                  - teamCode
+                  - teamName
+                  - timestamp
+                  - teamId
+                x-examples:
+                  example-1:
+                    teamCode: string
+                    teamName: string
+                    timestamp: '2021-12-04T18:21:41.383Z'
+                    teamId: string
+  /api/simple/read:
+    get:
+      summary: Gets the specified team to edit.
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  teamCode:
+                    type: string
+                    minLength: 1
+                  teamName:
+                    type: string
+                    minLength: 1
+                  timestamp:
+                    type: string
+                    minLength: 1
+                  teamId:
+                    type: string
+                    minLength: 1
+                required:
+                  - teamCode
+                  - teamName
+                  - timestamp
+                  - teamId
+                x-examples:
+                  example-1:
+                    teamCode: string
+                    teamName: string
+                    timestamp: '2021-12-04T18:21:41.383Z'
+                    teamId: string
+      operationId: get-api-simple-read
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: teamId
+          description: The identifier of the team.
+  /api/simple/view:
+    get:
+      summary: Gets the specified team details to display.
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  teamCode:
+                    type: string
+                    minLength: 1
+                  teamName:
+                    type: string
+                    minLength: 1
+                  teamId:
+                    type: string
+                    minLength: 1
+                required:
+                  - teamCode
+                  - teamName
+                  - teamId
+                x-examples:
+                  example-1:
+                    teamCode: string
+                    teamName: string
+                    teamId: string
+      operationId: get-api-simple-view
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: teamId
+          description: The identifier of the team.
+  /api/simple/set:
+    get:
+      summary: Gets the specified team set to edit.
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: ''
+                minItems: 1
+                uniqueItems: true
+                items:
+                  type: object
+                  required:
+                    - teamCode
+                    - teamName
+                    - timestamp
+                    - teamId
+                  properties:
+                    teamCode:
+                      type: string
+                      minLength: 1
+                    teamName:
+                      type: string
+                      minLength: 1
+                    timestamp:
+                      type: string
+                      minLength: 1
+                    teamId:
+                      type: string
+                      minLength: 1
+                x-examples:
+                  example-1:
+                    - teamCode: string
+                      teamName: string
+                      timestamp: '2021-12-04T18:26:52.698Z'
+                      teamId: string
+      operationId: get-api-simple-set
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: teamName
+          description: Team name must contain it.
+      description: |-
+        ```
+        Gets the specified team set to edit. Criteria:
+        {
+            TeamName: string
+        }
+        Result: SimpleTeamSetItemDto[]
+        ```
+    put:
+      summary: /api/simple/set
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: ''
+                minItems: 1
+                uniqueItems: true
+                items:
+                  type: object
+                  required:
+                    - teamCode
+                    - teamName
+                    - timestamp
+                    - teamId
+                  properties:
+                    teamCode:
+                      type: string
+                      minLength: 1
+                    teamName:
+                      type: string
+                      minLength: 1
+                    timestamp:
+                      type: string
+                      minLength: 1
+                    teamId:
+                      type: string
+                      minLength: 1
+                x-examples:
+                  example-1:
+                    - teamCode: string
+                      teamName: string
+                      timestamp: '2021-12-04T18:29:44.807Z'
+                      teamId: string
+      operationId: put-api-simple-set
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: teamName
+          description: Team name must contain it.
+      description: |-
+        ```
+        Updates the specified team set Criteria:
+        {
+            teamName: string
+        }
+        Data: SimpleTeamSetItemDto[]
+        Result: SimpleTeamSetItemDto[]
+        ```
+components:
+  schemas:
+    SimpleTeamListItemDto:
+      description: ''
+      type: object
+      properties:
+        teamId:
+          type: string
+          minLength: 1
+        teamCode:
+          type: string
+          minLength: 1
+        teamName:
+          type: string
+          minLength: 1
+      required:
+        - teamId
+        - teamCode
+        - teamName
+      x-examples:
+        example-1:
+          teamId: string
+          teamCode: string
+          teamName: string
+    SimpleTeamDto:
+      description: ''
+      type: object
+      properties:
+        teamId:
+          type: string
+          minLength: 1
+        teamCode:
+          type: string
+          minLength: 1
+        teamName:
+          type: string
+          minLength: 1
+        timestamp:
+          type: string
+          minLength: 1
+      required:
+        - teamId
+        - teamCode
+        - teamName
+        - timestamp
+      x-examples:
+        example-1:
+          teamId: string
+          teamCode: string
+          teamName: string
+          timestamp: '2021-12-04T18:44:28.724Z'
+    SimpleTeamViewDto:
+      description: ''
+      type: object
+      properties:
+        teamId:
+          type: string
+          minLength: 1
+        teamCode:
+          type: string
+          minLength: 1
+        teamName:
+          type: string
+          minLength: 1
+      required:
+        - teamId
+        - teamCode
+        - teamName
+      x-examples:
+        example-1:
+          teamId: string
+          teamCode: string
+          teamName: string
+    SimpleTeamSetItemDto:
+      description: ''
+      type: object
+      x-examples:
+        example-1:
+          teamId: string
+          teamCode: string
+          teamName: string
+          timestamp: '2021-12-04T18:48:35.103Z'
+      properties:
+        teamId:
+          type: string
+          minLength: 1
+        teamCode:
+          type: string
+          minLength: 1
+        teamName:
+          type: string
+          minLength: 1
+        timestamp:
+          minLength: 1
+          type: string
+      required:
+        - teamId
+        - teamCode
+        - teamName
+        - timestamp
+    SimpleTeamListCriteria:
+      title: SimpleTeamListCriteria
+      type: object
+      properties:
+        teamName:
+          type: string
+    SimpleTeamParams:
+      description: ''
+      type: object
+      properties:
+        teamId:
+          type: string
+          minLength: 1
+      required:
+        - teamId
+      x-examples:
+        example-1:
+          teamId: string
+    SimpleTeamViewParams:
+      description: ''
+      type: object
+      properties:
+        teamId:
+          type: string
+          minLength: 1
+      required:
+        - teamId
+      x-examples:
+        example-1:
+          teamId: string
+    SimpleTeamSetCriteria:
+      title: SimpleTeamSetCriteria
+      type: object
+      properties:
+        teamName:
+          type: string
+  securitySchemes: {}
